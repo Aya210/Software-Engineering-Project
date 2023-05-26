@@ -1,7 +1,6 @@
+import 'package:sw_app/Presentation/Login.dart';
 import 'package:flutter/material.dart';
-
-import 'Login.dart';
-
+import '../Utils/ImagesE.dart';
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
 
@@ -14,7 +13,7 @@ class _LoadingState extends State<Loading> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 3),(){
+    Future.delayed(const Duration(seconds: 2),(){
       Navigator.push(context, MaterialPageRoute(builder: (context)=> const Login()));
     });
   }
@@ -23,11 +22,15 @@ class _LoadingState extends State<Loading> {
   Widget build(BuildContext context) {
     return Scaffold(backgroundColor: Colors.black,
       body: Center(
-        child: Image.asset('assets/images/logoE.jpg',height: 250,width: 250,
-        ),
-      ),
-    )
+          child: Column(
+            mainAxisAlignment:  MainAxisAlignment.center,
+            children: [
+              Image.asset(ImagesE.logoE,height: 250,width: 250,),
+              const SizedBox(height: 15.0),
+                    const CircularProgressIndicator()
+                ],
+              ),)
+          )
     ;
   }
-  }
-
+}
